@@ -78,7 +78,8 @@ def pr_pipelines(edition):
         ])
 
     trigger = {
-        'event': ['pull_request',],
+        'event': ['push',],
+        'branch': 'master',
     }
     return [
         pipeline(

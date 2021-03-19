@@ -237,7 +237,9 @@ services:
     MYSQL_USER: grafana
 
 trigger:
+  branch:
+  - master
   event:
-  - pull_request
+  - push
 
 ...
