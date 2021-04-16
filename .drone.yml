@@ -28,6 +28,7 @@ steps:
   environment:
     GITHUB_TOKEN:
       from_secret: github_token
+    DRONE_COMMIT: master
 
 - name: initialize
   image: grafana/build-container:1.4.1
