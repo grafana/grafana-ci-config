@@ -22,7 +22,7 @@ steps:
 - name: clone
   image: grafana/build-container:1.4.1
   commands:
-    - git clone "https://$${GITHUB_TOKEN}@github.com/grafana/grafana.git"
+    - git clone "https://$${GITHUB_TOKEN}@github.com/grafana/grafana.git" .
     - cd grafana
     - git checkout $${DRONE_TAG}
   environment:
