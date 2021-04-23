@@ -1,5 +1,5 @@
-load('scripts/pr.star', 'pr_pipelines')
+load('scripts/release.star', 'release_pipelines')
 
 def main(ctx):
-    edition = 'enterprise'
-    return pr_pipelines(edition=edition)
+    edition = 'private'
+    return release_pipelines()
