@@ -316,21 +316,21 @@ trigger:
 kind: secret
 name: gpg_password
 get:
-  path: secret/data/grafana/gpg-password
+  path: infra/data/ci/grafana/gpg-password
   name: gpg-password
 
 ---
 kind: secret
 name: gpg_priv_key
 get:
-  path: secret/data/grafana/gpg-priv-key
+  path: infra/data/ci/grafana/gpg-priv-key
   name: gpg-priv-key
 
 ---
 kind: secret
 name: gpg_pub_key
 get:
-  path: secret/data/grafana/gpg-pub-key
+  path: infra/data/ci/grafana/gpg-pub-key
   name: gpg-pub-key
 
 ...
