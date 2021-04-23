@@ -10,9 +10,6 @@ platform:
 clone:
   disable: true
 
-environment:
-  DRONE_TAG: v7.5.0
-
 steps:
 - name: identify-runner
   image: alpine:3.13
@@ -26,6 +23,7 @@ steps:
     - cd grafana
     - git checkout ${DRONE_TAG}
   environment:
+    DRONE_TAG: v7.5.0
     GITHUB_TOKEN:
       from_secret: github_token
 
@@ -35,12 +33,13 @@ steps:
   - mkdir -p bin
   - curl -fL -o bin/grabpl https://grafana-downloads.storage.googleapis.com/grafana-build-pipeline/v0.5.53/grabpl
   - chmod +x bin/grabpl
-  - ./bin/grabpl verify-version v7.5.0
+  - ./bin/grabpl verify-version ${DRONE_TAG}
   - curl -fLO https://github.com/jwilder/dockerize/releases/download/v$${DOCKERIZE_VERSION}/dockerize-linux-amd64-v$${DOCKERIZE_VERSION}.tar.gz
   - tar -C bin -xzvf dockerize-linux-amd64-v$${DOCKERIZE_VERSION}.tar.gz
   - rm dockerize-linux-amd64-v$${DOCKERIZE_VERSION}.tar.gz
   - yarn install --frozen-lockfile --no-progress
   environment:
+    DRONE_TAG: v7.5.0
     DOCKERIZE_VERSION: 0.6.1
 
 - name: lint-backend
