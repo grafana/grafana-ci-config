@@ -139,11 +139,11 @@ steps:
     GITHUB_TOKEN:
       from_secret: github_token
     GPG_KEY_PASSWORD:
-      from_secret: gpg_key_password
+      from_secret: gpg-password
     GPG_PRIV_KEY:
-      from_secret: gpg_priv_key
+      from_secret: gpg-priv.key
     GPG_PUB_KEY:
-      from_secret: gpg_pub_key
+      from_secret: gpg-pub.key
     GRAFANA_API_KEY:
       from_secret: grafana_api_key
   depends_on:
@@ -311,5 +311,26 @@ services:
 trigger:
   ref:
   - refs/heads/master
+
+---
+kind: secret
+name: gpg-password
+get:
+  path: secret/data/grafana/gpg
+  name: password
+
+---
+kind: secret
+name: gpg-priv.key
+get:
+  path: secret/data/grafana/gpg
+  name: priv.key
+
+---
+kind: secret
+name: gpg-pub.key
+get:
+  path: secret/data/grafana/gpg
+  name: pub.key
 
 ...
