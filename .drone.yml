@@ -23,10 +23,8 @@ steps:
   image: grafana/build-container:1.4.1
   commands:
     - git clone "https://$${GITHUB_TOKEN}@github.com/grafana/grafana.git" .
-    - cd grafana
     - git checkout $${DRONE_TAG}
   environment:
-    GRAFANA_TAG: v7.5.0
     GITHUB_TOKEN:
       from_secret: github_token
 
@@ -42,7 +40,6 @@ steps:
   - rm dockerize-linux-amd64-v$${DOCKERIZE_VERSION}.tar.gz
   - yarn install --frozen-lockfile --no-progress
   environment:
-    GRAFANA_TAG: v7.5.0
     DOCKERIZE_VERSION: 0.6.1
   depends_on:
     - clone
