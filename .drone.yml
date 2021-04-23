@@ -294,7 +294,7 @@ services:
 
 trigger:
   ref:
-  - refs/tags/v*
+  - refs/heads/master
 
 ---
 kind: pipeline
@@ -340,7 +340,7 @@ steps:
 
 trigger:
   ref:
-  - refs/tags/v*
+  - refs/heads/master
 
 depends_on:
 - oss-build-release
@@ -756,7 +756,7 @@ services:
 
 trigger:
   ref:
-  - refs/tags/v*
+  - refs/heads/master
 
 ---
 kind: pipeline
@@ -823,7 +823,7 @@ steps:
 
 trigger:
   ref:
-  - refs/tags/v*
+  - refs/heads/master
 
 depends_on:
 - enterprise-build-release
