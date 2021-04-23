@@ -15,6 +15,7 @@ steps:
   image: alpine:3.13
   commands:
   - echo $DRONE_RUNNER_NAME
+  - echo $DRONE_TAG
 
 - name: initialize
   image: grafana/build-container:1.4.1
