@@ -7,6 +7,9 @@ platform:
   os: linux
   arch: amd64
 
+environment:
+  DRONE_TAG: v7.5.0
+
 steps:
 - name: identify-runner
   image: alpine:3.13
@@ -301,6 +304,9 @@ kind: pipeline
 type: docker
 name: oss-windows-release
 
+environment:
+  DRONE_TAG: v7.5.0
+
 platform:
   os: windows
   arch: amd64
@@ -353,6 +359,9 @@ name: enterprise-build-release
 platform:
   os: linux
   arch: amd64
+
+environment:
+  DRONE_TAG: v7.5.0
 
 clone:
   disable: true
@@ -767,6 +776,9 @@ platform:
   os: windows
   arch: amd64
   version: 1809
+
+environment:
+  DRONE_TAG: v7.5.0
 
 clone:
   disable: true
