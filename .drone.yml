@@ -7,6 +7,9 @@ platform:
   os: linux
   arch: amd64
 
+clone:
+  disable: true
+
 environment:
   DRONE_TAG: v7.5.0
 
@@ -15,6 +18,16 @@ steps:
   image: alpine:3.13
   commands:
   - echo $DRONE_RUNNER_NAME
+
+- name: clone
+  image: grafana/build-container:1.4.1
+  commands:
+    - git clone "https://$${GITHUB_TOKEN}@github.com/grafana/grafana.git"
+    - cd grafana
+    - git checkout ${DRONE_TAG}
+  environment:
+    GITHUB_TOKEN:
+      from_secret: github_token
 
 - name: initialize
   image: grafana/build-container:1.4.1
