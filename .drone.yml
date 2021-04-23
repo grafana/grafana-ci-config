@@ -44,6 +44,8 @@ steps:
   environment:
     GRAFANA_TAG: v7.5.0
     DOCKERIZE_VERSION: 0.6.1
+  depends_on:
+    - clone
 
 - name: lint-backend
   image: grafana/build-container:1.4.1
